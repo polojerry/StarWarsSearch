@@ -16,6 +16,17 @@ object AppDependencies {
     private val hiltKapt =
         "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
 
+    private val liveData =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
+    private val viewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
+
+
+    private val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    private val navigationUi =
+        "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
 
     //test libs
     private val junit = "junit:junit:${Versions.junit}"
@@ -29,6 +40,10 @@ object AppDependencies {
         add(constraintLayout)
         add(material)
         add(hilt)
+        add(liveData)
+        add(viewModel)
+        add(navigationFragment)
+        add(navigationUi)
         add(DataDependencies.retrofit)
         add(DataDependencies.moshi)
         add(DataDependencies.loggingInterceptor)
@@ -43,7 +58,7 @@ object AppDependencies {
         add(junit)
     }
 
-    val appKapt  = arrayListOf<String>().apply {
+    val appKapt = arrayListOf<String>().apply {
         add(hiltKapt)
     }
 }

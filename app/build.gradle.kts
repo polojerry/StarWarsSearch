@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
-
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -36,6 +36,10 @@ android {
     java {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    viewBinding {
+        android.buildFeatures.dataBinding = true
     }
 }
 

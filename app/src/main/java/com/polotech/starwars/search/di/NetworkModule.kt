@@ -46,6 +46,5 @@ object NetworkModule {
         return retrofit.create(StarWarsApiService::class.java)
     }
 
-
     private val BASE_URL = "https://swapi.dev/api/"
 }

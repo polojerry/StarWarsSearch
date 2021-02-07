@@ -21,6 +21,11 @@ object Versions {
     //Di-->> Hilt
     val hilt = "2.31.2-alpha"
 
+    //LifeCycle
+    val lifeCycle = "2.2.0"
+    val navigation = "2.3.3"
+
+
     //test
     val junit = "4.13.1"
     val extJunit = "1.1.1"
