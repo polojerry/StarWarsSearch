@@ -1,6 +1,6 @@
 package com.polotech.starwars.data.remote.models.response
 
-import com.squareup.moshi.Json
+import com.polotech.starwars.data.remote.models.CharacterNetwork
 
 data class SearchResponse(
     val count: Int,

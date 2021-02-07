@@ -1,6 +1,6 @@
 object AppDependencies {
     //std lib
-    val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
     //android ui
     private val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
@@ -9,6 +9,13 @@ object AppDependencies {
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     private val material =
         "com.google.android.material:material:${Versions.material}"
+
+    //DI-->> Hilt
+    private val hilt =
+        "com.google.dagger:hilt-android:${Versions.hilt}"
+    private val hiltKapt =
+        "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+
 
     //test libs
     private val junit = "junit:junit:${Versions.junit}"
@@ -21,6 +28,10 @@ object AppDependencies {
         add(appcompat)
         add(constraintLayout)
         add(material)
+        add(hilt)
+        add(DataDependencies.retrofit)
+        add(DataDependencies.moshi)
+        add(DataDependencies.loggingInterceptor)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -30,5 +41,9 @@ object AppDependencies {
 
     val testLibraries = arrayListOf<String>().apply {
         add(junit)
+    }
+
+    val appKapt  = arrayListOf<String>().apply {
+        add(hiltKapt)
     }
 }

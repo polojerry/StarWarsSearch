@@ -1,7 +1,8 @@
-package com.polotech.starwars.search
+package com.polotech.starwars.search.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.polotech.starwars.search.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

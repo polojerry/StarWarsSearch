@@ -1,6 +1,7 @@
 object Versions {
     //app level
     const val gradle = "7.0.0-alpha05"
+    const val kotlinGradle = "1.4.21"
     const val kotlin = "1.4.21"
 
     //libs
@@ -16,6 +17,9 @@ object Versions {
     val loggingInterceptor = "4.9.0"
 
     val coroutinesCore = "1.3.3"
+
+    //Di-->> Hilt
+    val hilt = "2.31.2-alpha"
 
     //test
     val junit = "4.13.1"
