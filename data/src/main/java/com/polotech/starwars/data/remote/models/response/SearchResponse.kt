@@ -3,10 +3,9 @@ package com.polotech.starwars.data.remote.models.response
 import com.squareup.moshi.Json
 
 data class SearchResponse(
-    val name: String,
-    val height: String,
+    val count: Int,
+    val next: String?,
+    val previous: String?,
+    val results: List<CharacterNetwork>
 
-    @Json(name = "birth_year")
-    val birth_year: String,
-    val url: String,
 )
