@@ -12,13 +12,16 @@ import javax.inject.Qualifier
 @InstallIn(ActivityComponent::class)
 object UseCaseModule {
 
-    @Provides
+
     @SearchUseCase
+    @Provides
     fun providesSearchCharacterUseCase(searchCharacterRepository: SearchCharacterRepository): SearchCharacterUseCase {
         return SearchCharacterUseCase(searchCharacterRepository)
     }
 
+
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
     annotation class SearchUseCase
+
 }

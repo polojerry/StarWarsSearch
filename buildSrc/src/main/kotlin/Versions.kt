@@ -19,12 +19,16 @@ object Versions {
     val coroutinesCore = "1.3.3"
 
     //Di-->> Hilt
-    val hilt = "2.31.2-alpha"
+//    val hilt = "2.31.2-alpha"
+//    val hilt = "1.0.0"
+    val hilt = "2.28-alpha"
+    val hiltViewModel = "1.0.0-alpha02"
 
     //LifeCycle
     val lifeCycle = "2.2.0"
     val navigation = "2.3.3"
 
+    val activityVersion = "1.1.0"
 
     //test
     val junit = "4.13.1"

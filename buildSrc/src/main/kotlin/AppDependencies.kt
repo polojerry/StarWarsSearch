@@ -9,12 +9,17 @@ object AppDependencies {
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     private val material =
         "com.google.android.material:material:${Versions.material}"
+    private val activityKtx = "androidx.activity:activity-ktx:${Versions.activityVersion}"
 
     //DI-->> Hilt
     private val hilt =
         "com.google.dagger:hilt-android:${Versions.hilt}"
     private val hiltKapt =
         "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+
+    //Hilt View Model
+    private val hiltViewModel =  "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
+    private val hiltViewModelKapt =  "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
 
     private val liveData =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
@@ -40,6 +45,8 @@ object AppDependencies {
         add(constraintLayout)
         add(material)
         add(hilt)
+        add(hiltViewModel)
+        add(activityKtx)
         add(liveData)
         add(viewModel)
         add(navigationFragment)
@@ -60,5 +67,6 @@ object AppDependencies {
 
     val appKapt = arrayListOf<String>().apply {
         add(hiltKapt)
+        add(hiltViewModelKapt)
     }
 }

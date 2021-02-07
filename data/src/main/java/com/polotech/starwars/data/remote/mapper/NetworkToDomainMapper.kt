@@ -1,6 +1,6 @@
 package com.polotech.starwars.data.remote.mapper
 
-import com.polotech.starwars.data.remote.models.response.CharacterNetwork
+import com.polotech.starwars.data.remote.models.CharacterNetwork
 import com.polotech.starwars.domain.models.CharacterModel
 
 fun CharacterNetwork.toDomain(): CharacterModel {
