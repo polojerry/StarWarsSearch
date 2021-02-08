@@ -9,6 +9,13 @@
             name="detailsViewModel"
             type="com.polotech.starwars.search.ui.details.DetailsViewModel" />
 
+        <variable
+            name="species"
+            type="com.polotech.starwars.search.models.SpeciesPresenter" />
+
+        <variable
+            name="planet"
+            type="com.polotech.starwars.search.models.PlanetPresenter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,6 +111,152 @@
 
 
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layout_specie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_profile">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_specie_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_name"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_specie_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    android:text="@{species.name}"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_specie_name"
+                    app:layout_constraintStart_toStartOf="@+id/text_specie_language"
+                    tools:text="Yoda's species" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_specie_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/label_language"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/label_specie_name"
+                    app:layout_constraintTop_toBottomOf="@+id/label_specie_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_specie_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAllCaps="false"
+                    android:text="@{species.language}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_specie_language"
+                    app:layout_constraintStart_toEndOf="@+id/label_specie_language"
+                    tools:text="Galactic basic" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layout_planet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/margin_medium"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_specie">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_planet_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_name"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_planet_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{planet.name}"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_planet_name"
+                    app:layout_constraintStart_toStartOf="@+id/text_planet_population"
+                    tools:text="unknown" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_planet_population"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/label_population"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/label_planet_name"
+                    app:layout_constraintTop_toBottomOf="@+id/label_planet_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_planet_population"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{planet.population}"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_planet_population"
+                    app:layout_constraintStart_toEndOf="@+id/label_planet_population"
+                    tools:text="unknown" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

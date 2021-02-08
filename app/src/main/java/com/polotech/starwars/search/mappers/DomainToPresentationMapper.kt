@@ -7,6 +7,7 @@ import com.polotech.starwars.data.remote.models.SpeciesNetwork
 import com.polotech.starwars.domain.models.*
 import com.polotech.starwars.search.models.*
 import com.polotech.starwars.search.util.cmToFeetConverter
+import com.polotech.starwars.search.util.populationConverter
 
 fun CharacterModel.toPresentation(): CharacterPresenter {
     return CharacterPresenter(
@@ -34,7 +35,7 @@ fun CharacterWithDetailsModel.toPresentation(): CharacterWithDetailsPresenter {
 fun PlanetModel.toPresentation() : PlanetPresenter {
     return PlanetPresenter(
         name = name,
-        population = population
+        population = populationConverter(population)
     )
 }
 

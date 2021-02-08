@@ -6,16 +6,16 @@ data class CharacterWithDetailsNetwork(
     val name: String,
     val height: String,
 
-    @Json(name = "birth_year")
+    @field:Json(name = "birth_year")
     val birthYear: String,
     val url: String,
 
-    @Json(name = "films")
+    @field:Json(name = "films")
     val filmUrls: List<String>,
 
-    @Json(name = "homeworld")
+    @field:Json(name = "homeworld")
     val planetUrl: String,
 
-    @Json(name = "species")
+    @field:Json(name = "species")
     val speciesUrls: List<String>,
 )

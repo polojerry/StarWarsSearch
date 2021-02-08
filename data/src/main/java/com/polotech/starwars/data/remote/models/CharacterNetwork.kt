@@ -6,7 +6,7 @@ data class CharacterNetwork(
     val name: String,
     val height: String,
 
-    @Json(name = "birth_year")
+    @field:Json(name = "birth_year")
     val birth_year: String,
     val url: String,
 )
