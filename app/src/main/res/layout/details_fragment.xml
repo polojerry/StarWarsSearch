@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="detailsViewModel"
+            type="com.polotech.starwars.search.ui.details.DetailsViewModel" />
 
     </data>
 
@@ -10,6 +15,95 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.details.DetailsFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_character_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_character_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:title="@{detailsViewModel.character.name}"
+                tools:title="Yoda" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layout_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar_character_details">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_birth_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_birth_year"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_birth_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:text="@{detailsViewModel.character.birthYear}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_birth_year"
+                    app:layout_constraintStart_toEndOf="@+id/label_birth_year"
+                    tools:text="896BBY" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:text="@string/label_height"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/label_birth_year"
+                    app:layout_constraintTop_toBottomOf="@+id/label_birth_year" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/string_format_height, detailsViewModel.character.heightInCm,detailsViewModel.character.heightInFeet )}"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_height"
+                    app:layout_constraintStart_toStartOf="@+id/text_birth_year"
+                    tools:text="66cm || 2.17feet" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

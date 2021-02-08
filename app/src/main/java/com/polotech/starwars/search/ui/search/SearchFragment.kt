@@ -26,7 +26,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = SearchFragmentBinding.inflate(inflater, container, false).apply {
-            layoutSearch.textSearch.doOnTextChanged { text, start, before, count ->
+            layoutSearch.textSearch.doOnTextChanged { text, _, _, _ ->
                 viewModel.searchCharacter(text.toString())
 
             }

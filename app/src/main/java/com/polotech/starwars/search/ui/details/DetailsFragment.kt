@@ -20,12 +20,9 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailsFragmentBinding.inflate(inflater, container, false)
-
-        viewModel.character.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "Name: ${it.name}", Toast.LENGTH_SHORT).show()
+        binding = DetailsFragmentBinding.inflate(inflater, container, false).apply {
+            detailsViewModel = viewModel
         }
-
         return binding.root
     }
 

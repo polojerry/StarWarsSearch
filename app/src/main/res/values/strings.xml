@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">StarWarsSearch</string>
     <string name="search_character">Search character</string>
+    <string name="label_birth_year">Birth Year: </string>
+    <string name="label_height">Height: </string>
+    <string name="string_format_height">%scm || %sfeet</string>
 </resources>
