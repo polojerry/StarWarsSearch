@@ -12,33 +12,33 @@ import kotlinx.coroutines.flow.flow
 
 class CharacterDetailsRepositoryImpl(private val starWarsApiService: StarWarsApiService) :
     CharacterDetailsRepository {
-
     override suspend fun fetchCharacterDetail(characterUrl: String): Flow<CharacterWithDetailsModel> =
         flow {
             val characterDetail = starWarsApiService.fetchCharacterDetails(characterUrl)
             emit(characterDetail.toDomain())
         }
 
-    override suspend fun fetchPlanet(planetUrl: String): Flow<PlanetModel> = flow {
-        val planet = starWarsApiService.fetchPlanet(planetUrl)
+    override suspend fun fetchPlanet(url: String): Flow<PlanetModel> = flow {
+        val characterDetails = starWarsApiService.fetchCharacterDetails(url)
+        val planet = starWarsApiService.fetchPlanet(characterDetails.planetUrl)
         emit(planet.toDomain())
     }
 
-    override suspend fun fetchSpecies(speciesUrls: List<String>): Flow<List<SpeciesModel>> = flow {
+    override suspend fun fetchSpecies(url: String): Flow<List<SpeciesModel>> = flow {
+        val characterDetails = starWarsApiService.fetchCharacterDetails(url)
         val species = mutableListOf<SpeciesModel>()
-        speciesUrls.forEach {
+        characterDetails.speciesUrls.forEach {
             val specie = starWarsApiService.fetchSpecie(it)
             species.add(specie.toDomain())
         }
-        emit(species)
     }
 
-    override suspend fun fetchFilms(filmsUrls: List<String>): Flow<List<FilmModel>> = flow {
+    override suspend fun fetchFilms(url: String): Flow<List<FilmModel>> = flow {
+        val characterDetails = starWarsApiService.fetchCharacterDetails(url)
         val films = mutableListOf<FilmModel>()
-        filmsUrls.forEach {
+        characterDetails.filmUrls.forEach {
             val film = starWarsApiService.fetchFilm(it)
             films.add(film.toDomain())
         }
-        emit(films)
     }
 }

@@ -10,9 +10,9 @@ interface CharacterDetailsRepository {
 
     suspend fun fetchCharacterDetail(characterUrl: String): Flow<CharacterWithDetailsModel>
 
-    suspend  fun fetchPlanet(planetUrl: String): Flow<PlanetModel>
+    suspend  fun fetchPlanet(url: String): Flow<PlanetModel>
 
-    suspend fun fetchSpecies(speciesUrls: List<String>): Flow<List<SpeciesModel>>
+    suspend fun fetchSpecies(url: String): Flow<List<SpeciesModel>>
 
-    suspend fun fetchFilms(filmsUrls: List<String>): Flow<List<FilmModel>>
+    suspend fun fetchFilms(url: String): Flow<List<FilmModel>>
 }

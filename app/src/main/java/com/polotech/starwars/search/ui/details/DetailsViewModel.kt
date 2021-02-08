@@ -2,13 +2,14 @@ package com.polotech.starwars.search.ui.details
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.polotech.starwars.domain.usecases.*
 import com.polotech.starwars.search.di.UseCaseModule
+import com.polotech.starwars.search.extensions.doOnError
+import com.polotech.starwars.search.mappers.toPresentation
 import com.polotech.starwars.search.models.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DetailsViewModel @ViewModelInject @Inject constructor(
@@ -41,8 +42,4 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     init {
         _character.value = savedStateHandle.get<CharacterPresenter>("character")
     }
-
-
-
-
 }
