@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StarWarsSearch</string>
+    <string name="search_character">Search character</string>
 </resources>
