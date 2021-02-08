@@ -1,7 +1,8 @@
 package com.polotech.starwars.search.di
 
+import com.polotech.starwars.domain.repository.CharacterDetailsRepository
 import com.polotech.starwars.domain.repository.SearchCharacterRepository
-import com.polotech.starwars.domain.usecases.SearchCharacterUseCase
+import com.polotech.starwars.domain.usecases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,9 +20,52 @@ object UseCaseModule {
         return SearchCharacterUseCase(searchCharacterRepository)
     }
 
+    @CharacterDetailsUseCase
+    @Provides
+    fun providesCharacterWithDetailsUseCase(characterDetailsRepository: CharacterDetailsRepository): FetchCharacterWithDetailsUseCase {
+        return FetchCharacterWithDetailsUseCase(characterDetailsRepository)
+    }
+
+    @FilmUseCase
+    @Provides
+    fun providesFilmUseCase(characterDetailsRepository: CharacterDetailsRepository): FetchFilmUseCase {
+        return FetchFilmUseCase(characterDetailsRepository)
+    }
+
+    @PlanetUseCase
+    @Provides
+    fun providesPlanetUseCase(characterDetailsRepository: CharacterDetailsRepository): FetchPlanetUseCase {
+        return FetchPlanetUseCase(characterDetailsRepository)
+    }
+
+    @SpeciesUseCase
+    @Provides
+    fun providesSpeciesUseCase(characterDetailsRepository: CharacterDetailsRepository): FetchSpeciesUseCase {
+        return FetchSpeciesUseCase(characterDetailsRepository)
+    }
+
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class CharacterDetailsUseCase
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class FilmUseCase
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class PlanetUseCase
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class SpeciesUseCase
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
     annotation class SearchUseCase
+
+
+
 
 }
