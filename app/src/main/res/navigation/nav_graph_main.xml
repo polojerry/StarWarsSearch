@@ -18,5 +18,9 @@
         android:id="@+id/detailsFragment"
         android:name="com.polotech.starwars.search.ui.details.DetailsFragment"
         android:label="DetailsFragment"
-        tools:layout="@layout/details_fragment"/>
+        tools:layout="@layout/details_fragment">
+        <argument
+            android:name="character"
+            app:argType="com.polotech.starwars.search.models.CharacterPresenter" />
+    </fragment>
 </navigation>

@@ -18,6 +18,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:onClick="@{() -> clickListener.onClick(character)}"
         app:cardUseCompatPadding="true">
 
@@ -34,7 +35,9 @@
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:text="@{character.name}"
                 android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/text_view_birt_year"
                 app:layout_constraintEnd_toStartOf="@+id/navigation_arrow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -44,11 +47,11 @@
                 android:id="@+id/text_view_birt_year"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginBottom="8dp"
                 android:text="@{character.birthYear}"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/navigation_arrow"
                 app:layout_constraintStart_toStartOf="@+id/text_character_name"

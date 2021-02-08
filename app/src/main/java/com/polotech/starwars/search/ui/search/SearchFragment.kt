@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.polotech.starwars.search.databinding.SearchFragmentBinding
 import com.polotech.starwars.search.models.Results
 import com.polotech.starwars.search.ui.search.SearchRecyclerAdapter.OnClickListener
@@ -38,7 +39,8 @@ class SearchFragment : Fragment() {
 
     private fun setUpDisplay() {
         adapter = SearchRecyclerAdapter(OnClickListener { character ->
-            Toast.makeText(requireContext(), "Name : ${character.name}", Toast.LENGTH_SHORT).show()
+            val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(character)
+            findNavController().navigate(action)
         })
 
         binding.recyclerViewSearch.adapter = adapter
