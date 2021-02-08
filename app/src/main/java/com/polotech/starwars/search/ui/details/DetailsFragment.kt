@@ -1,7 +1,6 @@
 package com.polotech.starwars.search.ui.details
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,13 +14,14 @@ import com.polotech.starwars.search.models.PlanetPresenter
 import com.polotech.starwars.search.models.Results
 import com.polotech.starwars.search.models.SpeciesPresenter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.log
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
 
     private val viewModel: DetailsViewModel by viewModels()
     private lateinit var binding: DetailsFragmentBinding
+
+    private lateinit var filmAdapter: FilmRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +33,14 @@ class DetailsFragment : Fragment() {
                 findNavController().navigateUp()
             }
         }
+
+        setupDisplay()
         return binding.root
+    }
+
+    private fun setupDisplay() {
+        filmAdapter = FilmRecyclerAdapter()
+        binding.recyclerViewFilm.adapter = filmAdapter
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -50,57 +57,19 @@ class DetailsFragment : Fragment() {
                         "Failed to load Planets${result.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.layoutShimmerPlanet.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
+                    binding.layoutShimmerPlanet.visibility = View.INVISIBLE
                     displayPlanet(result.data)
                 }
 
                 is Results.Loading -> {
-                    Toast.makeText(requireContext(), "Loading Planets", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
-      /*  viewModel.characterFilms.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is Results.Failed -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed to load Films${result.throwable.localizedMessage}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                is Results.Success -> {
-                    displayFilms(result.data)
-                }
-
-                is Results.Loading -> {
-                    Toast.makeText(requireContext(), "Loading Films", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-*/
-        /*viewModel.characterFilms.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is Results.Failed -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed ${result.throwable.localizedMessage}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                is Results.Success -> {
-                    displayFilms(result.data)
-                }
-
-                is Results.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
         viewModel.characterSpecies.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Results.Failed -> {
@@ -109,36 +78,59 @@ class DetailsFragment : Fragment() {
                         "Failed ${result.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.layoutShimmerSpecie.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
                     displaySpecies(result.data)
-                    Toast.makeText(
-                        requireContext(),
-                        "Success ${result.data.size}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    binding.layoutShimmerSpecie.visibility = View.INVISIBLE
                 }
 
                 is Results.Loading -> {
-                    Toast.makeText(requireContext(), "Loading Species", Toast.LENGTH_SHORT).show()
                 }
             }
-        }*/
+        }
+
+        viewModel.characterFilms.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Results.Failed -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "Failed ${result.throwable.localizedMessage}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    binding.layoutShimmerFilm.visibility = View.INVISIBLE
+                }
+
+                is Results.Success -> {
+                    displayFilms(result.data)
+                    binding.layoutShimmerFilm.visibility = View.INVISIBLE
+                }
+
+                is Results.Loading -> {
+                }
+            }
+        }
+
     }
 
     private fun displaySpecies(data: List<SpeciesPresenter>) {
-        binding.species = data[0]
+        if (data.isEmpty()) binding.species =
+            SpeciesPresenter("unavailable", "unavailable", "unavailable")
+        else data[0]
         binding.executePendingBindings()
-        Toast.makeText(requireContext(), data.toString(), Toast.LENGTH_SHORT).show()
+        binding.layoutSpecie.visibility = View.VISIBLE
     }
 
     private fun displayFilms(data: List<FilmPresenter>) {
+        filmAdapter.submitList(data)
+        binding.recyclerViewFilm.visibility = View.VISIBLE
 
     }
 
     private fun displayPlanet(data: PlanetPresenter) {
-        binding.planet  = data
+        binding.planet = data
+        binding.layoutPlanet.visibility = View.VISIBLE
     }
 
 }

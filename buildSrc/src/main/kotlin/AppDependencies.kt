@@ -18,19 +18,22 @@ object AppDependencies {
         "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
 
     //Hilt View Model
-    private val hiltViewModel =  "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
-    private val hiltViewModelKapt =  "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
+    private val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
+    private val hiltViewModelKapt = "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
 
     private val liveData =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
     private val viewModel =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
 
-
+    //Navigation
     private val navigationFragment =
         "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     private val navigationUi =
         "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
+    //Shimmer
+    private val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
 
 
     //test libs
@@ -51,6 +54,7 @@ object AppDependencies {
         add(viewModel)
         add(navigationFragment)
         add(navigationUi)
+        add(shimmer)
         add(DataDependencies.retrofit)
         add(DataDependencies.moshi)
         add(DataDependencies.loggingInterceptor)

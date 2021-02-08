@@ -32,6 +32,7 @@ class CharacterDetailsRepositoryImpl(private val starWarsApiService: StarWarsApi
             val specie = starWarsApiService.fetchSpecie(it.addHttps())
             species.add(specie.toDomain())
         }
+        emit(species)
     }
 
     override suspend fun fetchFilms(url: String): Flow<List<FilmModel>> = flow {
@@ -41,5 +42,6 @@ class CharacterDetailsRepositoryImpl(private val starWarsApiService: StarWarsApi
             val film = starWarsApiService.fetchFilm(it.addHttps())
             films.add(film.toDomain())
         }
+        emit(films)
     }
 }

@@ -39,6 +39,48 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_search"
             tools:listitem="@layout/item_character_search" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:id="@+id/shimmer_layout_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_search"
+            app:shimmer_auto_start="false"
+            app:shimmer_highlight_alpha="0"
+            android:visibility="invisible"
+            >
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+
+                <include layout="@layout/item_shimmer_character_search"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
