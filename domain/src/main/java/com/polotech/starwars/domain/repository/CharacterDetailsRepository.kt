@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface CharacterDetailsRepository {
 
-    fun fetchCharacterDetail(characterUrl: String): Flow<CharacterWithDetailsModel>
+    suspend fun fetchCharacterDetail(characterUrl: String): Flow<CharacterWithDetailsModel>
 
-    fun fetchPlanet(planetUrl: String): Flow<PlanetModel>
+    suspend  fun fetchPlanet(planetUrl: String): Flow<PlanetModel>
 
-    fun fetchSpecies(speciesUrls: List<String>): Flow<List<SpeciesModel>>
+    suspend fun fetchSpecies(speciesUrls: List<String>): Flow<List<SpeciesModel>>
 
-    fun fetchFilms(filmsUrls: List<String>): Flow<List<FilmModel>>
+    suspend fun fetchFilms(filmsUrls: List<String>): Flow<List<FilmModel>>
 }
