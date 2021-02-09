@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.polotech.starwars.domain.models.error.ErrorModel
 import com.polotech.starwars.search.databinding.DetailsFragmentBinding
 import com.polotech.starwars.search.models.FilmPresenter
 import com.polotech.starwars.search.models.PlanetPresenter
@@ -52,11 +53,7 @@ class DetailsFragment : Fragment() {
         viewModel.characterPlanet.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Results.Failed -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed to load Planets${result.throwable.localizedMessage}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    handleErrors(result.error)
                     binding.shimmerLayoutDetails.layoutShimmerPlanet.visibility = View.INVISIBLE
                 }
 
@@ -73,11 +70,7 @@ class DetailsFragment : Fragment() {
         viewModel.characterSpecies.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Results.Failed -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed ${result.throwable.localizedMessage}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    handleErrors(result.error)
                     binding.shimmerLayoutDetails.layoutShimmerSpecie.visibility = View.INVISIBLE
                 }
 
@@ -94,11 +87,7 @@ class DetailsFragment : Fragment() {
         viewModel.characterFilms.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Results.Failed -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed ${result.throwable.localizedMessage}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    handleErrors(result.error)
                     binding.shimmerLayoutDetails.layoutShimmerFilm.visibility = View.INVISIBLE
                 }
 
@@ -112,12 +101,41 @@ class DetailsFragment : Fragment() {
             }
         }
 
+        viewModel.generalError.observe(viewLifecycleOwner){
+            handleErrors(it)
+        }
+
+    }
+
+    private fun handleErrors(error: ErrorModel) {
+        when (error) {
+            is ErrorModel.Network -> {
+                Toast.makeText(
+                    requireContext(),
+                    "Error: Check your Internet Connection",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else -> {
+                Toast.makeText(
+                    requireContext(),
+                    "Error: Unknown Error",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun displaySpecies(data: List<SpeciesPresenter>) {
-        if (data.isEmpty()) binding.species =
-            SpeciesPresenter("unavailable", "unavailable", "unavailable")
-        else data[0]
+        when {
+            data.isEmpty() -> {
+                binding.species =
+                    SpeciesPresenter("unavailable", "unavailable", "unavailable")
+            }
+            else -> {
+                binding.species = data[0]
+            }
+        }
         binding.executePendingBindings()
         binding.layoutSpecie.visibility = View.VISIBLE
     }

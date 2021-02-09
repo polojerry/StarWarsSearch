@@ -10,6 +10,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.polotech.starwars.domain.models.error.ErrorModel
 import com.polotech.starwars.search.databinding.SearchFragmentBinding
 import com.polotech.starwars.search.models.Results
 import com.polotech.starwars.search.ui.search.SearchRecyclerAdapter.OnClickListener
@@ -52,11 +53,22 @@ class SearchFragment : Fragment() {
         viewModel.character.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Results.Failed -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed ${result.throwable.localizedMessage}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    when (result.error) {
+                        is ErrorModel.Network -> {
+                            Toast.makeText(
+                                requireContext(),
+                                "Error: Check your Internet Connection",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        else -> {
+                            Toast.makeText(
+                                requireContext(),
+                                "Error: Unknown Error",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
                     binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.INVISIBLE
                 }
 

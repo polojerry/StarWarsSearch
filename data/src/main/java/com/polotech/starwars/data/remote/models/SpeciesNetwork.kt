@@ -7,5 +7,5 @@ data class SpeciesNetwork(
     val language : String,
 
     @field:Json(name = "homeworld")
-    val homeWorld : String
+    val homeWorld : String?
 )

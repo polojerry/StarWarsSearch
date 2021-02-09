@@ -3,6 +3,8 @@ package com.polotech.starwars.search.ui.details
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import com.polotech.starwars.domain.models.error.ErrorHandler
+import com.polotech.starwars.domain.models.error.ErrorModel
 import com.polotech.starwars.domain.usecases.FetchCharacterWithDetailsUseCase
 import com.polotech.starwars.domain.usecases.FetchFilmUseCase
 import com.polotech.starwars.domain.usecases.FetchPlanetUseCase
@@ -11,8 +13,8 @@ import com.polotech.starwars.search.di.UseCaseModule
 import com.polotech.starwars.search.extensions.doOnError
 import com.polotech.starwars.search.mappers.toPresentation
 import com.polotech.starwars.search.models.*
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DetailsViewModel @ViewModelInject @Inject constructor(
@@ -21,9 +23,9 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     @UseCaseModule.FilmUseCase private val filmUseCase: FetchFilmUseCase,
     @UseCaseModule.PlanetUseCase private val planetUseCase: FetchPlanetUseCase,
     @UseCaseModule.SpeciesUseCase private val specieUseCase: FetchSpeciesUseCase,
+    private val errorHandler: ErrorHandler
 
-
-    ) : ViewModel() {
+) : ViewModel() {
 
     private val _character = MutableLiveData<CharacterPresenter>()
     val character: LiveData<CharacterPresenter>
@@ -41,6 +43,14 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     val characterFilms: LiveData<Results<List<FilmPresenter>>>
         get() = _charactersFilms
 
+    private val _generalError = MutableLiveData<ErrorModel>()
+    val generalError: LiveData<ErrorModel>
+        get() = _generalError
+
+
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        _generalError.postValue((errorHandler.getError(throwable)))
+    }
 
     init {
         _character.value = savedStateHandle.get<CharacterPresenter>("character")
@@ -52,10 +62,10 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     private fun fetchPlanet(url: String?) {
         _charactersPlanet.value = Results.loading()
         url?.let {
-            viewModelScope.launch {
+            viewModelScope.launch(coroutineExceptionHandler) {
                 planetUseCase(it)
                     .doOnError {
-                        _charactersPlanet.value = Results.failed(it)
+                        _charactersPlanet.value = Results.failed(errorHandler.getError(it))
                     }.collect {
                         _charactersPlanet.value = Results.success(it.toPresentation())
                     }
@@ -66,10 +76,10 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     private fun fetchSpecies(url: String?) {
         _charactersSpecies.value = Results.loading()
         url?.let {
-            viewModelScope.launch {
+            viewModelScope.launch (coroutineExceptionHandler){
                 specieUseCase(it)
-                    .doOnError {throwable->
-                        _charactersSpecies.value = Results.failed(throwable)
+                    .doOnError {
+                        _charactersSpecies.value = Results.failed(errorHandler.getError(it))
                     }.collect {
                         _charactersSpecies.value = Results.success(
                             it.map { specie ->
@@ -84,10 +94,10 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     private fun fetchFilms(url: String?) {
         _charactersFilms.value = Results.loading()
         url?.let {
-            viewModelScope.launch {
+            viewModelScope.launch(coroutineExceptionHandler) {
                 filmUseCase(it)
                     .doOnError {
-                        _charactersFilms.value = Results.failed(it)
+                        _charactersFilms.value = Results.failed(errorHandler.getError(it))
                     }.collect {
                         _charactersFilms.value = Results.success(
                             it.map { film ->
@@ -98,4 +108,5 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
             }
         }
     }
+
 }

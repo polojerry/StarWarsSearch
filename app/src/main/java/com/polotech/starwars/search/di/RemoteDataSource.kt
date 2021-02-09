@@ -3,6 +3,8 @@ package com.polotech.starwars.search.di
 import com.polotech.starwars.data.remote.api.StarWarsApiService
 import com.polotech.starwars.data.remote.repositories.CharacterDetailsRepositoryImpl
 import com.polotech.starwars.data.remote.repositories.SearchCharacterRepositoryImpl
+import com.polotech.starwars.data.remote.util.ErrorHandlerImpl
+import com.polotech.starwars.domain.models.error.ErrorHandler
 import com.polotech.starwars.domain.repository.CharacterDetailsRepository
 import com.polotech.starwars.domain.repository.SearchCharacterRepository
 import dagger.Module
@@ -23,4 +25,8 @@ object RemoteDataSource {
     fun providesRemoteDetailsRepository(starWarsApi: StarWarsApiService) : CharacterDetailsRepository{
         return CharacterDetailsRepositoryImpl(starWarsApi)
     }
+
+    @Provides
+    fun provideErrorHandler() : ErrorHandler = ErrorHandlerImpl()
+
 }
