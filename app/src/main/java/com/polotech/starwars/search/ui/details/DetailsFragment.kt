@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.polotech.starwars.domain.models.error.ErrorModel
+import com.polotech.starwars.search.R
 import com.polotech.starwars.search.databinding.DetailsFragmentBinding
 import com.polotech.starwars.search.models.FilmPresenter
 import com.polotech.starwars.search.models.PlanetPresenter
@@ -112,14 +113,14 @@ class DetailsFragment : Fragment() {
             is ErrorModel.Network -> {
                 Toast.makeText(
                     requireContext(),
-                    "Error: Check your Internet Connection",
+                    getString(R.string.error_internet),
                     Toast.LENGTH_SHORT
                 ).show()
             }
             else -> {
                 Toast.makeText(
                     requireContext(),
-                    "Error: Unknown Error",
+                    getString(R.string.error_unknown),
                     Toast.LENGTH_SHORT
                 ).show()
             }
