@@ -16,6 +16,7 @@ object Versions {
     val retrofit = "2.9.0"
     val loggingInterceptor = "4.9.0"
 
+    //coroutines
     val coroutinesCore = "1.3.3"
 
     //Di-->> Hilt
@@ -36,4 +37,5 @@ object Versions {
     val junit = "4.13.1"
     val extJunit = "1.1.1"
     val espresso = "3.2.0"
+    val mockito = "1.10.19"
 }
