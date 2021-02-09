@@ -8,4 +8,7 @@
     <string name="label_name">Name: </string>
     <string name="label_language">Language: </string>
     <string name="illustration_search">Lets explore the star wars Universe</string>
+    <string name="planet">Planet</string>
+    <string name="specie">Specie</string>
+    <string name="films">Films</string>
 </resources>

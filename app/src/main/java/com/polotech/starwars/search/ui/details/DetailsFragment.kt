@@ -124,7 +124,7 @@ class DetailsFragment : Fragment() {
 
     private fun displayFilms(data: List<FilmPresenter>) {
         filmAdapter.submitList(data)
-        binding.recyclerViewFilm.visibility = View.VISIBLE
+        binding.layoutFilms.visibility = View.VISIBLE
 
     }
 
