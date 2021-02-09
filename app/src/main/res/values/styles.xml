@@ -30,6 +30,10 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="Widget.StarWarsSearch.ShimmerText" parent="Widget.AppCompat.TextView">
+        <item name="android:background">@color/shimmer_item_color</item>
+    </style>
+
 
 
 </resources>

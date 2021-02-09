@@ -7,23 +7,33 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="150dp"
         android:id="@+id/text_shimmer_one"
-        android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/shimmer_item_color"
+        android:layout_height="@dimen/shimmer_height"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/Widget.StarWarsSearch.ShimmerText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_shimmer_two"
         android:layout_width="200dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/shimmer_item_color"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="@dimen/shimmer_height"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        style="@style/Widget.StarWarsSearch.ShimmerText"
         app:layout_constraintStart_toStartOf="@+id/text_shimmer_one"
         app:layout_constraintTop_toBottomOf="@id/text_shimmer_one" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_shimmer_three"
+        android:layout_width="250dp"
+        android:layout_height="@dimen/shimmer_height"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        style="@style/Widget.StarWarsSearch.ShimmerText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_shimmer_two"
+        app:layout_constraintTop_toBottomOf="@id/text_shimmer_two" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
