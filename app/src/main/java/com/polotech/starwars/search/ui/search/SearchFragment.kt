@@ -57,21 +57,26 @@ class SearchFragment : Fragment() {
                         "Failed ${result.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    binding.shimmerLayoutSearch.visibility = View.INVISIBLE
+                    binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
-                    binding.shimmerLayoutSearch.visibility = View.INVISIBLE
+                    binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.INVISIBLE
                     adapter.submitList(result.data)
                 }
 
                 is Results.Loading -> {
-                    binding.shimmerLayoutSearch.startShimmer()
-                    binding.shimmerLayoutSearch.visibility = View.VISIBLE
+                    binding.layoutShimmerSearch.shimmerLayoutSearch.startShimmer()
+                    binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.VISIBLE
+                    toggleSearchIllustrationVisibility(View.INVISIBLE)
                 }
             }
 
         }
+    }
+
+    private fun toggleSearchIllustrationVisibility(visibility : Int){
+        binding.layoutSearchIllustration.visibility = visibility
     }
 
 }

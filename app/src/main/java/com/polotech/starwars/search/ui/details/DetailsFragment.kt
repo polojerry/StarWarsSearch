@@ -57,11 +57,11 @@ class DetailsFragment : Fragment() {
                         "Failed to load Planets${result.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    binding.layoutShimmerPlanet.visibility = View.INVISIBLE
+                    binding.shimmerLayoutDetails.layoutShimmerPlanet.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
-                    binding.layoutShimmerPlanet.visibility = View.INVISIBLE
+                    binding.shimmerLayoutDetails.layoutShimmerPlanet.visibility = View.INVISIBLE
                     displayPlanet(result.data)
                 }
 
@@ -78,12 +78,12 @@ class DetailsFragment : Fragment() {
                         "Failed ${result.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    binding.layoutShimmerSpecie.visibility = View.INVISIBLE
+                    binding.shimmerLayoutDetails.layoutShimmerSpecie.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
                     displaySpecies(result.data)
-                    binding.layoutShimmerSpecie.visibility = View.INVISIBLE
+                    binding.shimmerLayoutDetails.layoutShimmerSpecie.visibility = View.INVISIBLE
                 }
 
                 is Results.Loading -> {
@@ -99,12 +99,12 @@ class DetailsFragment : Fragment() {
                         "Failed ${result.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    binding.layoutShimmerFilm.visibility = View.INVISIBLE
+                    binding.shimmerLayoutDetails.layoutShimmerFilm.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
                     displayFilms(result.data)
-                    binding.layoutShimmerFilm.visibility = View.INVISIBLE
+                    binding.shimmerLayoutDetails.layoutShimmerFilm.visibility = View.INVISIBLE
                 }
 
                 is Results.Loading -> {

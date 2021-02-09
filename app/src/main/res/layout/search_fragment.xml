@@ -39,48 +39,55 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_search"
             tools:listitem="@layout/item_character_search" />
 
-        <com.facebook.shimmer.ShimmerFrameLayout
+        <include android:id="@+id/layout_shimmer_search"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_medium"
-            android:id="@+id/shimmer_layout_search"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_search"
-            app:shimmer_auto_start="false"
-            app:shimmer_highlight_alpha="0"
-            android:visibility="invisible"
-            >
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+            layout="@layout/shimmer_layout_search"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_search_illustration"
+            app:layout_constraintTop_toBottomOf="@id/layout_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_search_illustration"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_undraw_lost_online_wqob" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_search_illustration"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="@string/illustration_search"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/image_search_illustration"
+                app:layout_constraintTop_toBottomOf="@+id/image_search_illustration"
+                android:textStyle="italic"
+                android:textSize="18sp"/>
 
-                <include layout="@layout/item_shimmer_character_search"/>
 
-                <include layout="@layout/item_shimmer_character_search"/>
 
-                <include layout="@layout/item_shimmer_character_search"/>
 
-                <include layout="@layout/item_shimmer_character_search"/>
-
-                <include layout="@layout/item_shimmer_character_search"/>
-
-                <include layout="@layout/item_shimmer_character_search"/>
-
-                <include layout="@layout/item_shimmer_character_search"/>
-
-                <include layout="@layout/item_shimmer_character_search"/>
-
-                <include layout="@layout/item_shimmer_character_search"/>
-
-                <include layout="@layout/item_shimmer_character_search"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

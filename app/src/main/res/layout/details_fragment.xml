@@ -119,6 +119,7 @@
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_medium"
+            tools:visibility="visible"
             android:visibility="invisible"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -193,6 +194,7 @@
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/margin_medium"
+            tools:visibility="visible"
             android:visibility="invisible"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -272,81 +274,15 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_planet"
             tools:listitem="@layout/item_film" />
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/layout_shimmer_specie"
+        <include
+            android:id="@+id/shimmer_layout_details"
+            layout="@layout/shimmer_layout_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
-            android:layout_marginEnd="@dimen/margin_medium"
-            app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_profile"
-            app:shimmer_auto_start="true"
-            app:shimmer_highlight_alpha="0"
-            tools:visibility="invisible">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/item_shimmer_details" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/layout_shimmer_planet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/margin_medium"
-            app:cardUseCompatPadding="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_specie"
-            app:shimmer_auto_start="true"
-            app:shimmer_highlight_alpha="0"
-            tools:visibility="invisible">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/item_shimmer_details" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/layout_shimmer_film"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="@dimen/margin_medium"
-            app:cardUseCompatPadding="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_planet"
-            app:shimmer_auto_start="true"
-            app:shimmer_highlight_alpha="0"
-            tools:visibility="invisible">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/item_shimmer_details" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
+            app:layout_constraintTop_toBottomOf="@+id/layout_profile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

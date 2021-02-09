@@ -29,7 +29,7 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Some title" />
+                tools:text="The Empire Strikes Back" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_film_open_crawl"
@@ -44,7 +44,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_film_name"
                 app:textAllCaps="false"
-                tools:text="Some Bloody text" />
+                tools:text="It is a dark time for the\r\nRebellion. Although the Death\r\nStar has been destroyed,\r\nImperial troops have driven the\r\nRebel forces from their hidden\r\nbase and pursued them across\r\nthe galaxy." />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
