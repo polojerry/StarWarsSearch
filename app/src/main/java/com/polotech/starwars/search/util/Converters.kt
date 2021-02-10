@@ -12,5 +12,5 @@ internal fun cmToFeetConverter(heightInCm: String): String {
 internal fun populationConverter(population: String): String {
     if (population.contains("unknown")) return population
     val populationInt = (population).toLong()
-    return String.format("%,d", populationInt)
+    return String.format("%d", populationInt)
 }

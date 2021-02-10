@@ -67,11 +67,13 @@ class SearchFragment : Fragment() {
                             ).show()
                         }
                     }
+                    toggleSearchRecyclerVisibility(View.INVISIBLE)
                     binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.INVISIBLE
                 }
 
                 is Results.Success -> {
                     binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.INVISIBLE
+                    toggleSearchIllustrationVisibility(View.INVISIBLE)
                     submitResult(result.data)
                 }
 
@@ -89,9 +91,12 @@ class SearchFragment : Fragment() {
         when {
             data.isEmpty() -> {
                 setUpEmptyIllustration()
+                toggleSearchRecyclerVisibility(View.INVISIBLE)
+
             }
             else -> {
                 adapter.submitList(data)
+                toggleSearchRecyclerVisibility(View.VISIBLE)
             }
         }
     }
@@ -104,7 +109,7 @@ class SearchFragment : Fragment() {
 
     private fun setUpSearchIllustration() {
         bindIllustration(
-            R.drawable.star_wars_search, resources.getString(R.string.illustration_search)
+            R.drawable.ic_undraw_lost_online_wqob, resources.getString(R.string.illustration_search)
         )
     }
 
@@ -122,6 +127,10 @@ class SearchFragment : Fragment() {
 
     private fun toggleSearchIllustrationVisibility(visibility: Int) {
         binding.layoutSearchIllustration.visibility = visibility
+    }
+
+    private fun toggleSearchRecyclerVisibility(visibility: Int) {
+        binding.recyclerViewSearch.visibility = visibility
     }
 
 }

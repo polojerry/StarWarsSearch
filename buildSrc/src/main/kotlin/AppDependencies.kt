@@ -43,6 +43,9 @@ object AppDependencies {
     private val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
     private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
+    private val archCore = "androidx.arch.core:core-testing:${Versions.arch}"
+
+
     val appLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
         add(coreKtx)
@@ -70,6 +73,7 @@ object AppDependencies {
 
     val testLibraries = arrayListOf<String>().apply {
         add(junit)
+        add(archCore)
     }
 
     val appKapt = arrayListOf<String>().apply {

@@ -26,6 +26,7 @@ object Versions {
     //LifeCycle
     val lifeCycle = "2.2.0"
     val navigation = "2.3.3"
+    val arch = "2.1.0"
 
     //Ktx
     val activityVersion = "1.1.0"
@@ -42,4 +43,5 @@ object Versions {
     val espresso = "3.2.0"
     val mockito = "1.10.19"
     val mockWebServer = "4.9.0"
+
 }

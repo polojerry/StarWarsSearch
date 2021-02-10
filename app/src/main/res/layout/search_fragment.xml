@@ -77,15 +77,17 @@
                 android:id="@+id/text_search_illustration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="@string/illustration_search"
-                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/image_search_illustration"
-                app:layout_constraintTop_toBottomOf="@+id/image_search_illustration"
+                android:textSize="18sp"
                 android:textStyle="italic"
-                android:textSize="18sp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_search_illustration"
+                tools:text="@string/illustration_search" />
 
 
 
