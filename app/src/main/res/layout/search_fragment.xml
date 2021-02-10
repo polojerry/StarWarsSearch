@@ -71,13 +71,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_undraw_lost_online_wqob" />
+                tools:srcCompat="@drawable/ic_undraw_lost_online_wqob" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_search_illustration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/illustration_search"
+                tools:text="@string/illustration_search"
                 android:textAllCaps="false"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"

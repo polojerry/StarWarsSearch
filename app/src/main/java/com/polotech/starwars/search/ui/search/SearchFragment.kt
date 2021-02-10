@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
+import coil.load
 import com.polotech.starwars.domain.models.error.ErrorModel
 import com.polotech.starwars.search.R
 import com.polotech.starwars.search.databinding.SearchFragmentBinding
+import com.polotech.starwars.search.models.CharacterPresenter
 import com.polotech.starwars.search.models.Results
 import com.polotech.starwars.search.ui.search.SearchRecyclerAdapter.OnClickListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +27,7 @@ class SearchFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = SearchFragmentBinding.inflate(inflater, container, false).apply {
             layoutSearch.textSearch.doOnTextChanged { text, _, _, _ ->
@@ -35,8 +35,8 @@ class SearchFragment : Fragment() {
 
             }
         }
-
         setUpDisplay()
+        setUpSearchIllustration()
 
         return binding.root
     }
@@ -57,11 +57,7 @@ class SearchFragment : Fragment() {
                 is Results.Failed -> {
                     when (result.error) {
                         is ErrorModel.Network -> {
-                            Toast.makeText(
-                                requireContext(),
-                                getString(R.string.error_internet),
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            setUpErrorIllustration()
                         }
                         else -> {
                             Toast.makeText(
@@ -76,7 +72,7 @@ class SearchFragment : Fragment() {
 
                 is Results.Success -> {
                     binding.layoutShimmerSearch.shimmerLayoutSearch.visibility = View.INVISIBLE
-                    adapter.submitList(result.data)
+                    submitResult(result.data)
                 }
 
                 is Results.Loading -> {
@@ -89,7 +85,42 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun toggleSearchIllustrationVisibility(visibility : Int){
+    private fun submitResult(data: List<CharacterPresenter>){
+        when {
+            data.isEmpty() -> {
+                setUpEmptyIllustration()
+            }
+            else -> {
+                adapter.submitList(data)
+            }
+        }
+    }
+
+    private fun setUpErrorIllustration() {
+        bindIllustration(
+            R.drawable.undraw_server_down_s4lk, resources.getString(R.string.illustration_network_error)
+        )
+    }
+
+    private fun setUpSearchIllustration() {
+        bindIllustration(
+            R.drawable.star_wars_search, resources.getString(R.string.illustration_search)
+        )
+    }
+
+    private fun setUpEmptyIllustration() {
+        bindIllustration(
+            R.drawable.undraw_empty_xct9, resources.getString(R.string.illustration_empty_search)
+        )
+    }
+
+    private fun bindIllustration(imageDrawable: Int, message: String) {
+        toggleSearchIllustrationVisibility(View.VISIBLE)
+        binding.imageSearchIllustration.load(imageDrawable)
+        binding.textSearchIllustration.text = message
+    }
+
+    private fun toggleSearchIllustrationVisibility(visibility: Int) {
         binding.layoutSearchIllustration.visibility = visibility
     }
 

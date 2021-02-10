@@ -35,6 +35,8 @@ object AppDependencies {
     //Shimmer
     private val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
 
+    //COil
+    private val coil = "io.coil-kt:coil:${Versions.coil}"
 
     //test libs
     private val junit = "junit:junit:${Versions.junit}"
@@ -55,6 +57,7 @@ object AppDependencies {
         add(navigationFragment)
         add(navigationUi)
         add(shimmer)
+        add(coil)
         add(DataDependencies.retrofit)
         add(DataDependencies.moshi)
         add(DataDependencies.loggingInterceptor)

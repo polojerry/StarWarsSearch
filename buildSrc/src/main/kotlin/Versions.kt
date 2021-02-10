@@ -33,6 +33,9 @@ object Versions {
     //Shimmer
     val shimmer = "0.5.0"
 
+    //coil
+    val coil = "1.1.1"
+
     //test
     val junit = "4.13.1"
     val extJunit = "1.1.1"
