@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">StarWarsSearch</string>
+    <string name="search_character">Search character</string>
+    <string name="label_birth_year">Birth Year: </string>
+    <string name="label_height">Height: </string>
+    <string name="string_format_height">%scm || %sfeet</string>
+    <string name="label_population">Population: </string>
+    <string name="label_name">Name: </string>
+    <string name="label_language">Language: </string>
+    <string name="illustration_search">Lets explore the star wars Universe</string>
+    <string name="planet">Planet</string>
+    <string name="specie">Specie</string>
+    <string name="films">Films</string>
 </resources>

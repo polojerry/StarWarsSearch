@@ -9,6 +9,32 @@ object AppDependencies {
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     private val material =
         "com.google.android.material:material:${Versions.material}"
+    private val activityKtx = "androidx.activity:activity-ktx:${Versions.activityVersion}"
+
+    //DI-->> Hilt
+    private val hilt =
+        "com.google.dagger:hilt-android:${Versions.hilt}"
+    private val hiltKapt =
+        "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+
+    //Hilt View Model
+    private val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
+    private val hiltViewModelKapt = "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
+
+    private val liveData =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
+    private val viewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
+
+    //Navigation
+    private val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    private val navigationUi =
+        "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
+    //Shimmer
+    private val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
+
 
     //test libs
     private val junit = "junit:junit:${Versions.junit}"
@@ -21,6 +47,17 @@ object AppDependencies {
         add(appcompat)
         add(constraintLayout)
         add(material)
+        add(hilt)
+        add(hiltViewModel)
+        add(activityKtx)
+        add(liveData)
+        add(viewModel)
+        add(navigationFragment)
+        add(navigationUi)
+        add(shimmer)
+        add(DataDependencies.retrofit)
+        add(DataDependencies.moshi)
+        add(DataDependencies.loggingInterceptor)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -30,5 +67,10 @@ object AppDependencies {
 
     val testLibraries = arrayListOf<String>().apply {
         add(junit)
+    }
+
+    val appKapt = arrayListOf<String>().apply {
+        add(hiltKapt)
+        add(hiltViewModelKapt)
     }
 }

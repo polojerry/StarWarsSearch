@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:visibility="invisible"
+        app:shimmer_auto_start="false"
+        app:shimmer_highlight_alpha="0">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+
+            <include layout="@layout/item_shimmer_character_search" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</layout>
