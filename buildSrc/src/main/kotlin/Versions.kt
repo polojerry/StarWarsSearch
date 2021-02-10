@@ -38,4 +38,5 @@ object Versions {
     val extJunit = "1.1.1"
     val espresso = "3.2.0"
     val mockito = "1.10.19"
+    val mockWebServer = "4.9.0"
 }

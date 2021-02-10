@@ -15,4 +15,8 @@ dependencies {
     //data libs
     implementation(DataDependencies.dataLibraries)
 
+    //test
+    testImplementation(CommonDependencies.testLibraries)
+    testImplementation(DataDependencies.testLibraries)
+
 }
