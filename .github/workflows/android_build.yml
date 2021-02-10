@@ -19,8 +19,11 @@ jobs:
       - name: Run Tests
         run: ./gradlew test
 
-      - name: Build Project
+      - name: Assemble Project
         run: ./gradlew assemble
+
+      - name: Build Project
+        run: ./gradlew build
 
       - name: Upload Apk
         uses: actions/upload-artifact@v2.1.4
