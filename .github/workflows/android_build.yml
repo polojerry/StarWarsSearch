@@ -1,0 +1,33 @@
+name: Android Build
+
+on: pull_request
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.2
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+
+      - name: Run Tests
+        run: ./gradlew test
+
+      - name: Assemble Project
+        run: ./gradlew assemble
+
+      - name: Build Project
+        run: ./gradlew build
+
+      - name: Upload Apk
+        uses: actions/upload-artifact@v2.1.4
+        with:
+          name: app
+          path: app/build/outputs/apk/debug/app-debug.apk
+
