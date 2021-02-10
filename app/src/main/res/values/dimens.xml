@@ -2,6 +2,8 @@
 <resources>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_large">12dp</dimen>
+    <dimen name="margin_extra_large">16dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="icon_dimension">24dp</dimen>
+    <dimen name="shimmer_height">24dp</dimen>
 </resources>

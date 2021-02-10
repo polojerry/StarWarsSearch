@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StarWarsSearch">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:theme="@style/Theme.StarWarsSearch.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

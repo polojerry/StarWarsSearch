@@ -12,4 +12,7 @@ dependencies {
     //app libs
     implementation(DomainDependencies.domainLibraries)
 
+    //test
+    testImplementation(CommonDependencies.testLibraries)
+
 }

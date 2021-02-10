@@ -11,4 +11,6 @@
     <string name="planet">Planet</string>
     <string name="specie">Specie</string>
     <string name="films">Films</string>
+    <string name="error_internet">Error: Check your Internet Connection</string>
+    <string name="error_unknown">Error: Unknown Error</string>
 </resources>

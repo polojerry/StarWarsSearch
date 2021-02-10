@@ -1,0 +1,22 @@
+{
+  "name": "unknown",
+  "rotation_period": "0",
+  "orbital_period": "0",
+  "diameter": "0",
+  "climate": "unknown",
+  "gravity": "unknown",
+  "terrain": "unknown",
+  "surface_water": "unknown",
+  "population": "unknown",
+  "residents": [
+    "http://swapi.dev/api/people/20/",
+    "http://swapi.dev/api/people/23/",
+    "http://swapi.dev/api/people/29/",
+    "http://swapi.dev/api/people/32/",
+    "http://swapi.dev/api/people/75/"
+  ],
+  "films": [],
+  "created": "2014-12-15T12:25:59.569000Z",
+  "edited": "2014-12-20T20:58:18.466000Z",
+  "url": "http://swapi.dev/api/planets/28/"
+}

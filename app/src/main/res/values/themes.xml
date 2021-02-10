@@ -13,4 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.StarWarsSearch.SplashScreen" parent="Theme.StarWarsSearch">
+        <!-- Logo with Primary Color as Background. -->
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>

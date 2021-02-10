@@ -12,11 +12,17 @@ object DataDependencies {
     val loggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
 
+    val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
+
     val dataLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
         add(coroutinesCore)
         add(retrofit)
         add(moshi)
         add(loggingInterceptor)
+    }
+
+    val testLibraries = arrayListOf<String>().apply {
+        add(mockWebServer)
     }
 }

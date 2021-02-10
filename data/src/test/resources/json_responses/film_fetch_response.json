@@ -1,0 +1,31 @@
+{
+  "title": "Revenge of the Sith",
+  "episode_id": 3,
+  "opening_crawl": "War! The Republic is crumbling\r\nunder attacks by the ruthless\r\nSith Lord, Count Dooku.\r\nThere are heroes on both sides.\r\nEvil is everywhere.\r\n\r\nIn a stunning move, the\r\nfiendish droid leader, General\r\nGrievous, has swept into the\r\nRepublic capital and kidnapped\r\nChancellor Palpatine, leader of\r\nthe Galactic Senate.\r\n\r\nAs the Separatist Droid Army\r\nattempts to flee the besieged\r\ncapital with their valuable\r\nhostage, two Jedi Knights lead a\r\ndesperate mission to rescue the\r\ncaptive Chancellor....",
+  "director": "George Lucas",
+  "producer": "Rick McCallum",
+  "release_date": "2005-05-19",
+  "characters": [
+    "http://swapi.dev/api/people/1/",
+    "http://swapi.dev/api/people/2/"
+  ],
+  "planets": [
+    "http://swapi.dev/api/planets/1/",
+    "http://swapi.dev/api/planets/2/"
+  ],
+  "starships": [
+    "http://swapi.dev/api/starships/2/",
+    "http://swapi.dev/api/starships/32/"
+  ],
+  "vehicles": [
+    "http://swapi.dev/api/vehicles/33/",
+    "http://swapi.dev/api/vehicles/50/"
+  ],
+  "species": [
+    "http://swapi.dev/api/species/1/",
+    "http://swapi.dev/api/species/2/"
+  ],
+  "created": "2014-12-20T18:49:38.403000Z",
+  "edited": "2014-12-20T20:47:52.073000Z",
+  "url": "http://swapi.dev/api/films/6/"
+}

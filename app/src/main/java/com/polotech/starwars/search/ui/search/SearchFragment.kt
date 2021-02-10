@@ -10,7 +10,9 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.polotech.starwars.domain.models.error.ErrorModel
+import com.polotech.starwars.search.R
 import com.polotech.starwars.search.databinding.SearchFragmentBinding
 import com.polotech.starwars.search.models.Results
 import com.polotech.starwars.search.ui.search.SearchRecyclerAdapter.OnClickListener
@@ -57,14 +59,14 @@ class SearchFragment : Fragment() {
                         is ErrorModel.Network -> {
                             Toast.makeText(
                                 requireContext(),
-                                "Error: Check your Internet Connection",
+                                getString(R.string.error_internet),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
                         else -> {
                             Toast.makeText(
                                 requireContext(),
-                                "Error: Unknown Error",
+                                getString(R.string.error_unknown),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
