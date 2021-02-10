@@ -6,28 +6,36 @@ import fakeRepoitory.DataFake
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class CharacterWithDetailsTest {
 
-    private val characterDetailsRepository = CharacterDetailsRepositoryFake()
-    private val characterWithDetailsUseCase = FetchCharacterWithDetailsUseCase(characterDetailsRepository)
+    private lateinit var characterWithDetailsUseCase: FetchCharacterWithDetailsUseCase
+
+    @Before
+    fun setUp() {
+        val characterDetailsRepository = CharacterDetailsRepositoryFake()
+        characterWithDetailsUseCase = FetchCharacterWithDetailsUseCase(characterDetailsRepository)
+    }
 
     @Test
-    fun `when characterWithDetailsUseCase is called, it should return characterWthDetails Object` (){
+    fun `when characterWithDetailsUseCase is called, it should return characterWthDetails Object`() {
         runBlockingTest {
-            val characterWithDetails = characterWithDetailsUseCase(DataFake.charactersWithDetails.character.url)
+            val characterWithDetails =
+                characterWithDetailsUseCase(DataFake.charactersWithDetails.character.url)
             assertNotNull(characterWithDetails)
         }
     }
 
     @Test
-    fun `when characterWithDetailsUSeCase is called, it should return the correct characterWthDetails object`(){
+    fun `when characterWithDetailsUSeCase is called, it should return the correct characterWthDetails object`() {
         runBlockingTest {
-            val characterWithDetails = characterWithDetailsUseCase(DataFake.charactersWithDetails.character.url)
+            val characterWithDetails =
+                characterWithDetailsUseCase(DataFake.charactersWithDetails.character.url)
 
             val character = characterWithDetails.first()
             assertEquals(character.name, DataFake.charactersWithDetails.character.name)
@@ -36,7 +44,8 @@ class CharacterWithDetailsTest {
             assertEquals(character.url, DataFake.charactersWithDetails.character.url)
             assertEquals(character.filmUrls, DataFake.charactersWithDetails.character.filmUrls)
             assertEquals(character.planetUrl, DataFake.charactersWithDetails.character.planetUrl)
-            assertEquals(character.speciesUrls, DataFake.charactersWithDetails.character.speciesUrls)
+            assertEquals(character.speciesUrls,
+                DataFake.charactersWithDetails.character.speciesUrls)
 
         }
     }

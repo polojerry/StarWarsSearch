@@ -7,13 +7,19 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class FetchFilmUseCaseTest {
 
-    private val characterDetailsRepository = CharacterDetailsRepositoryFake()
-    private val fetchFilmsUseCase = FetchFilmUseCase(characterDetailsRepository)
+    private lateinit var fetchFilmsUseCase : FetchFilmUseCase
+
+    @Before
+    fun setUp() {
+        val characterDetailsRepository = CharacterDetailsRepositoryFake()
+        fetchFilmsUseCase = FetchFilmUseCase(characterDetailsRepository)
+    }
 
     @Test
     fun `when fetchFilmsUseCase is called, it should return a list of Films`() {

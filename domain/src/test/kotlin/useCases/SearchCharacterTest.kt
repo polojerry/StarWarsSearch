@@ -6,31 +6,34 @@ import fakeRepoitory.DataFake
 import fakeRepoitory.SearchCharacterRepositoryFake
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class SearchCharacterTest {
 
-    private val searchRepository = SearchCharacterRepositoryFake()
-    private val searchCharacterUseCase = SearchCharacterUseCase(searchRepository)
+    private lateinit var searchCharacterUseCase: SearchCharacterUseCase
 
+    @Before
+    fun setUp() {
+        val searchRepository = SearchCharacterRepositoryFake()
+        searchCharacterUseCase = SearchCharacterUseCase(searchRepository)
+    }
 
     @Test
     fun `when searchCharacterUseCase is called, it should return list of characters`() {
         runBlockingTest {
-            val characters : List<CharacterModel> = searchCharacterUseCase("").first()
+            val characters: List<CharacterModel> = searchCharacterUseCase("").first()
             assertEquals(2, characters.size)
         }
     }
 
     @Test
-    fun `when searchCharacterUseCase is called, it should return the correct list of characters`(){
+    fun `when searchCharacterUseCase is called, it should return the correct list of characters`() {
         runBlockingTest {
-            val characters : List<CharacterModel> = searchCharacterUseCase("").first()
+            val characters: List<CharacterModel> = searchCharacterUseCase("").first()
             val character = characters[0]
             val character1 = characters[1]
 

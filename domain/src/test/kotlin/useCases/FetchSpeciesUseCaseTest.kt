@@ -8,13 +8,19 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class FetchSpeciesUseCaseTest {
 
-    private val characterDetailsRepository = CharacterDetailsRepositoryFake()
-    private val fetchSpeciesUseCase = FetchSpeciesUseCase(characterDetailsRepository)
+    private lateinit var fetchSpeciesUseCase: FetchSpeciesUseCase
+
+    @Before
+    fun setUp() {
+        val characterDetailsRepository = CharacterDetailsRepositoryFake()
+        fetchSpeciesUseCase = FetchSpeciesUseCase(characterDetailsRepository)
+    }
 
     @Test
     fun `when fetchSpeciesUseCase is called, it should return specieModel Object`() {
