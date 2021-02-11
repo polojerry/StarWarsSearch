@@ -62,8 +62,14 @@ dependencies {
 
     //kapt
     kapt(AppDependencies.appKapt)
+    kaptTest(AppDependencies.appKaptTest)
 
     //test libs
     testImplementation(AppDependencies.testLibraries)
+    testImplementation(CommonDependencies.testLibraries)
+
     androidTestImplementation(AppDependencies.androidTestLibraries)
+    androidTestKaptImplementation(AppDependencies.appAndroidTestKapt)
+
+    appDebugImplementation(AppDependencies.appDebugImplementation)
 }

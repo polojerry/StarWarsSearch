@@ -6,7 +6,5 @@ object AppConfig {
     const val versionName = "1.0.0"
     const val buildToolsVersion = "30.0.3"
 
-    const val androidTestInstrumentation = "androidx.test.runner.AndroidJUnitRunner"
-    const val proguardConsumerRules =  "consumer-rules.pro"
-    const val dimension = "environment"
+    const val androidTestInstrumentation = "com.polotech.starwars.search.util.CustomTestRunner"
 }

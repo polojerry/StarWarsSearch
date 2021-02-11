@@ -1,8 +1,10 @@
 package com.polotech.starwars.search.ui.search
 
-import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.polotech.starwars.domain.models.error.ErrorHandler
 import com.polotech.starwars.domain.usecases.SearchCharacterUseCase
 import com.polotech.starwars.search.di.UseCaseModule
@@ -11,16 +13,13 @@ import com.polotech.starwars.search.mappers.toPresentation
 import com.polotech.starwars.search.models.CharacterPresenter
 import com.polotech.starwars.search.models.Results
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SearchViewModel @ViewModelInject @Inject constructor(
     @UseCaseModule.SearchUseCase private val searchCharacterUseCase: SearchCharacterUseCase,
-    @Assisted private val savedStateHandle: SavedStateHandle,
-    private val errorHandler: ErrorHandler
+    private val errorHandler: ErrorHandler,
 ) :
     ViewModel() {
 

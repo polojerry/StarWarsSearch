@@ -24,3 +24,23 @@ fun DependencyHandler.testImplementation(list: List<String>) {
         add("testImplementation", dependency)
     }
 }
+
+fun DependencyHandler.androidTestKaptImplementation(list: List<String>) {
+    list.forEach { dependency ->
+        add("kaptAndroidTest", dependency)
+    }
+}
+
+fun DependencyHandler.appDebugImplementation(list: List<String>) {
+    list.forEach { dependency ->
+        add("debugImplementation", dependency)
+    }
+}
+
+fun DependencyHandler.kaptTest(list: List<String>) {
+    list.forEach { dependency ->
+        add("kaptTest", dependency)
+    }
+}
+
+

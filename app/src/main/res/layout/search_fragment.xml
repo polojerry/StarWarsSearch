@@ -8,10 +8,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_search_characters"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.search.SearchFragment"
-        android:id="@+id/layout_search_characters">
+        tools:context=".ui.search.SearchFragment">
 
 
         <include
@@ -40,29 +40,29 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_search"
             tools:listitem="@layout/item_character_search" />
 
-        <include android:id="@+id/layout_shimmer_search"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <include
+            android:id="@+id/layout_shimmer_search"
+            layout="@layout/shimmer_layout_search"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_search"
-            layout="@layout/shimmer_layout_search"/>
+            app:layout_constraintTop_toBottomOf="@+id/layout_search" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_search_illustration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/layout_search_illustration"
-            app:layout_constraintTop_toBottomOf="@id/layout_search"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:visibility="visible"
-            tools:visibility="invisible"
-            >
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_search"
+            tools:visibility="invisible">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_search_illustration"
@@ -71,23 +71,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_undraw_lost_online_wqob" />
+                tools:srcCompat="@drawable/ic_undraw_lost_online_wqob" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_search_illustration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/illustration_search"
-                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/image_search_illustration"
-                app:layout_constraintTop_toBottomOf="@+id/image_search_illustration"
+                android:textSize="18sp"
                 android:textStyle="italic"
-                android:textSize="18sp"/>
-
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_search_illustration"
+                tools:text="@string/illustration_search" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
