@@ -1,4 +1,4 @@
-package com.polotech.starwars.search.viewModels
+package com.polotech.starwars.search.viewModelsTest
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

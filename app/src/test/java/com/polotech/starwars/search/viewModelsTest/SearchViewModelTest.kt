@@ -1,22 +1,18 @@
-package com.polotech.starwars.search
+package com.polotech.starwars.search.viewModelsTest
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.polotech.starwars.data.remote.util.ErrorHandlerImpl
 import com.polotech.starwars.domain.models.error.ErrorHandler
 import com.polotech.starwars.domain.usecases.SearchCharacterUseCase
 import com.polotech.starwars.search.fakes.DataFake
 import com.polotech.starwars.search.fakes.repository.SearchCharacterRepositoryFake
-import com.polotech.starwars.search.models.CharacterPresenter
 import com.polotech.starwars.search.models.Results
 import com.polotech.starwars.search.ui.search.SearchViewModel
-import com.polotech.starwars.search.viewModels.TestCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
 
 @ExperimentalCoroutinesApi
 class SearchViewModelTest {

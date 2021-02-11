@@ -5,7 +5,6 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.polotech.starwars.domain.models.error.ErrorHandler
 import com.polotech.starwars.domain.models.error.ErrorModel
-import com.polotech.starwars.domain.usecases.FetchCharacterWithDetailsUseCase
 import com.polotech.starwars.domain.usecases.FetchFilmUseCase
 import com.polotech.starwars.domain.usecases.FetchPlanetUseCase
 import com.polotech.starwars.domain.usecases.FetchSpeciesUseCase
@@ -13,19 +12,19 @@ import com.polotech.starwars.search.di.UseCaseModule
 import com.polotech.starwars.search.extensions.doOnError
 import com.polotech.starwars.search.mappers.toPresentation
 import com.polotech.starwars.search.models.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DetailsViewModel @ViewModelInject @Inject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle,
-    @UseCaseModule.CharacterDetailsUseCase private val characterDetailsUseCase: FetchCharacterWithDetailsUseCase,
     @UseCaseModule.FilmUseCase private val filmUseCase: FetchFilmUseCase,
     @UseCaseModule.PlanetUseCase private val planetUseCase: FetchPlanetUseCase,
     @UseCaseModule.SpeciesUseCase private val specieUseCase: FetchSpeciesUseCase,
-    private val errorHandler: ErrorHandler
+    private val errorHandler: ErrorHandler,
 
-) : ViewModel() {
+    ) : ViewModel() {
 
     private val _character = MutableLiveData<CharacterPresenter>()
     val character: LiveData<CharacterPresenter>
@@ -76,7 +75,7 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     private fun fetchSpecies(url: String?) {
         _charactersSpecies.value = Results.loading()
         url?.let {
-            viewModelScope.launch (coroutineExceptionHandler){
+            viewModelScope.launch(coroutineExceptionHandler) {
                 specieUseCase(it)
                     .doOnError {
                         _charactersSpecies.value = Results.failed(errorHandler.getError(it))

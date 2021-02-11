@@ -1,14 +1,10 @@
 package com.polotech.starwars.search.fakes
 
-import com.polotech.starwars.domain.models.CharacterModel
-import com.polotech.starwars.domain.models.FilmModel
-import com.polotech.starwars.domain.models.PlanetModel
-import com.polotech.starwars.domain.models.SpeciesModel
+import com.polotech.starwars.domain.models.*
 import com.polotech.starwars.search.models.CharacterPresenter
 import com.polotech.starwars.search.models.FilmPresenter
 import com.polotech.starwars.search.models.PlanetPresenter
 import com.polotech.starwars.search.models.SpeciesPresenter
-import java.net.HttpURLConnection
 
 object DataFake {
 
@@ -38,7 +34,25 @@ object DataFake {
             "896BBY",
             "http://swapi.dev/api/people/20/"
         )
+    }
 
+    object charactersWithDetails {
+
+        val character = CharacterWithDetailsModel(
+            "Yoda",
+            "66",
+            "896BBY",
+            "http://swapi.dev/api/people/20/",
+            listOf(
+                "http://swapi.dev/api/films/2/",
+                "http://swapi.dev/api/films/3/",
+                "http://swapi.dev/api/films/4/",
+                "http://swapi.dev/api/films/5/",
+                "http://swapi.dev/api/films/6/",
+            ),
+            "http://swapi.dev/api/planets/28/",
+            listOf("http://swapi.dev/api/species/6/")
+        )
     }
 
     object films {
@@ -85,12 +99,35 @@ object DataFake {
     object lists {
         val listOfCharacters = listOf(characters.characterModel)
         val listOfFilms = listOf(films.filmModel)
+        val listOfSpecie = listOf(specie.specieModel)
     }
 
     object search {
         val empty_search = "DEJAVU"
         val searchWithValues = "Boba"
         val searchWithError = "I am the Error"
+    }
+
+    object urls{
+        val urlWithError = "/api/with_the_error"
+        val urlValid = "/api/"
+    }
+
+    object characterWithUrl{
+        val characterWithValidUrl = CharacterPresenter(
+            "Yoda",
+            "180",
+            "5.91",
+            "896BBY",
+            urls.urlValid
+        )
+        val characterWithErrorUrl = CharacterPresenter(
+            "Yoda",
+            "180",
+            "5.91",
+            "896BBY",
+            urls.urlWithError
+        )
     }
 
 
