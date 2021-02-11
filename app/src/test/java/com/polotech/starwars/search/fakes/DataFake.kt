@@ -1,7 +1,14 @@
 package com.polotech.starwars.search.fakes
 
-import com.polotech.starwars.domain.models.*
-import com.polotech.starwars.search.models.*
+import com.polotech.starwars.domain.models.CharacterModel
+import com.polotech.starwars.domain.models.FilmModel
+import com.polotech.starwars.domain.models.PlanetModel
+import com.polotech.starwars.domain.models.SpeciesModel
+import com.polotech.starwars.search.models.CharacterPresenter
+import com.polotech.starwars.search.models.FilmPresenter
+import com.polotech.starwars.search.models.PlanetPresenter
+import com.polotech.starwars.search.models.SpeciesPresenter
+import java.net.HttpURLConnection
 
 object DataFake {
 
@@ -75,9 +82,15 @@ object DataFake {
 
     }
 
-    object lists{
+    object lists {
         val listOfCharacters = listOf(characters.characterModel)
         val listOfFilms = listOf(films.filmModel)
+    }
+
+    object search {
+        val empty_search = "DEJAVU"
+        val searchWithValues = "Boba"
+        val searchWithError = "I am the Error"
     }
 
 

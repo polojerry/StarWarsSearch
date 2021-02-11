@@ -1,4 +1,5 @@
 object Versions {
+
     //app level
     const val gradle = "7.0.0-alpha05"
     const val kotlinGradle = "1.4.21"
@@ -43,5 +44,6 @@ object Versions {
     val espresso = "3.2.0"
     val mockito = "1.10.19"
     val mockWebServer = "4.9.0"
+    val coroutinesTest = "1.4.2"
 
 }

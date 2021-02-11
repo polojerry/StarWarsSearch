@@ -26,6 +26,9 @@ object AppDependencies {
     private val viewModel =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
 
+    //coroutines
+    private val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
+
     //Navigation
     private val navigationFragment =
         "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
@@ -44,8 +47,8 @@ object AppDependencies {
     private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
     private val archCore = "androidx.arch.core:core-testing:${Versions.arch}"
-
-
+    private val coroutineTest =  "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    
     val appLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
         add(coreKtx)
@@ -61,6 +64,7 @@ object AppDependencies {
         add(navigationUi)
         add(shimmer)
         add(coil)
+        add(coroutinesCore)
         add(DataDependencies.retrofit)
         add(DataDependencies.moshi)
         add(DataDependencies.loggingInterceptor)
@@ -74,6 +78,8 @@ object AppDependencies {
     val testLibraries = arrayListOf<String>().apply {
         add(junit)
         add(archCore)
+        add(extJUnit)
+        add(coroutineTest)
     }
 
     val appKapt = arrayListOf<String>().apply {
