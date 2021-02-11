@@ -12,6 +12,7 @@ object Versions {
     val appcompat = "1.3.0-alpha01"
     val constraintLayout = "2.0.4"
     val material = "1.2.1"
+    val fragment = "1.2.5"
 
     //Networking
     val retrofit = "2.9.0"
@@ -45,5 +46,6 @@ object Versions {
     val mockito = "1.10.19"
     val mockWebServer = "4.9.0"
     val coroutinesTest = "1.4.2"
+    val robolectric = "2.28-alpha"
 
 }
