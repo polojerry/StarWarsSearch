@@ -26,7 +26,7 @@ class CharacterWithDetailsTest {
     fun `when characterWithDetailsUseCase is called, it should return characterWthDetails Object`() {
         runBlockingTest {
             val characterWithDetails =
-                characterWithDetailsUseCase(DataFake.charactersWithDetails.character.url)
+                characterWithDetailsUseCase(DataFake.charactersWithDetails.character.url).first()
             assertNotNull(characterWithDetails)
         }
     }
