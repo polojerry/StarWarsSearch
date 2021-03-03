@@ -5,6 +5,7 @@ import com.polotech.starwars.domain.models.FilmModel
 import com.polotech.starwars.domain.models.PlanetModel
 import com.polotech.starwars.domain.models.SpeciesModel
 import com.polotech.starwars.domain.repository.CharacterDetailsRepository
+import fakeData.DataFake
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

@@ -2,6 +2,7 @@ package fakeRepoitory
 
 import com.polotech.starwars.domain.models.CharacterModel
 import com.polotech.starwars.domain.repository.SearchCharacterRepository
+import fakeData.DataFake
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

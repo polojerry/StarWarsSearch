@@ -2,7 +2,7 @@ package useCases
 
 import com.polotech.starwars.domain.usecases.FetchFilmUseCase
 import fakeRepoitory.CharacterDetailsRepositoryFake
-import fakeRepoitory.DataFake
+import fakeData.DataFake
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest

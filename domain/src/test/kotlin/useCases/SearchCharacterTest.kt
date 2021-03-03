@@ -2,7 +2,7 @@ package useCases
 
 import com.polotech.starwars.domain.models.CharacterModel
 import com.polotech.starwars.domain.usecases.SearchCharacterUseCase
-import fakeRepoitory.DataFake
+import fakeData.DataFake
 import fakeRepoitory.SearchCharacterRepositoryFake
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first

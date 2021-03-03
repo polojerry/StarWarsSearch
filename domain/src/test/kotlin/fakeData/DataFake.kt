@@ -1,4 +1,4 @@
-package fakeRepoitory
+package fakeData
 
 import com.polotech.starwars.domain.models.*
 

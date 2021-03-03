@@ -1,7 +1,7 @@
 object Versions {
 
     //project level
-    const val gradle = "7.0.0-alpha07"
+    const val gradle = "7.0.0-alpha08"
     const val kotlinGradlePlugin = "1.4.21"
     const val kotlin = "1.4.21"
 
