@@ -1,3 +1,5 @@
+package repository
+
 import com.polotech.starwars.data.remote.api.StarWarsApiService
 import com.polotech.starwars.data.remote.repositories.CharacterDetailsRepositoryImpl
 import com.polotech.starwars.domain.repository.CharacterDetailsRepository

@@ -1,3 +1,5 @@
+package mappers
+
 import com.polotech.starwars.data.remote.mapper.toDomain
 import fakes.DataFake
 import org.junit.Assert

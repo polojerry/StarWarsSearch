@@ -37,6 +37,9 @@ object Versions {
     //coil
     val coil = "1.1.1"
 
+    //room
+    val roomVersion = "2.2.6"
+
     //test
     val junit = "4.13.1"
     val extJunit = "1.1.1"
