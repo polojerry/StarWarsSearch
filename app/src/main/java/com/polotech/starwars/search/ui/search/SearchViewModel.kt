@@ -1,11 +1,9 @@
 package com.polotech.starwars.search.ui.search
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.polotech.starwars.domain.models.error.ErrorHandler
+import com.polotech.starwars.domain.usecases.GetFavouriteUseCase
 import com.polotech.starwars.domain.usecases.SearchCharacterUseCase
 import com.polotech.starwars.search.di.UseCaseModule
 import com.polotech.starwars.search.extensions.doOnError
@@ -19,6 +17,7 @@ import javax.inject.Inject
 
 class SearchViewModel @ViewModelInject @Inject constructor(
     @UseCaseModule.SearchUseCase private val searchCharacterUseCase: SearchCharacterUseCase,
+    @UseCaseModule.GetFavUseCase private val getFavouriteUseCase: GetFavouriteUseCase,
     private val errorHandler: ErrorHandler,
 ) :
     ViewModel() {
@@ -46,6 +45,18 @@ class SearchViewModel @ViewModelInject @Inject constructor(
                     _characters.postValue(Results.success(characters))
                 }
         }
+    }
+
+    fun getFavouriteUseCase() = liveData<List<CharacterPresenter>> {
+        val favouriteCharacters = mutableListOf<CharacterPresenter>()
+        viewModelScope.launch {
+            getFavouriteUseCase.invoke(null).collect { characters ->
+                characters.forEach { it ->
+                    favouriteCharacters.add(it.toPresentation())
+                }
+            }
+        }
+        emit(favouriteCharacters)
     }
 
 }

@@ -36,3 +36,13 @@ fun FilmModel.toPresentation(): FilmPresenter {
         openingCrawl = openingCrawl
     )
 }
+
+fun CharacterPresenter.toModel() : CharacterModel{
+    return CharacterModel(
+        name = name,
+        height = heightInCm,
+        url = url,
+        birthYear = birthYear
+    )
+
+}

@@ -42,6 +42,11 @@ object AppDependencies {
     //COil
     private val coil = "io.coil-kt:coil:${Versions.coil}"
 
+    //room
+    private val room = "androidx.room:room-runtime:${Versions.roomVersion}"
+    private val roomKapt = "androidx.room:room-compiler:${Versions.roomVersion}"
+    private val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
+
     //test libs
     private val junit = "junit:junit:${Versions.junit}"
     private val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
@@ -78,6 +83,8 @@ object AppDependencies {
         add(shimmer)
         add(coil)
         add(coroutinesCore)
+        add(room)
+        add(roomKtx)
         add(DataDependencies.retrofit)
         add(DataDependencies.moshi)
         add(DataDependencies.loggingInterceptor)
@@ -101,6 +108,7 @@ object AppDependencies {
     val appKapt = arrayListOf<String>().apply {
         add(hiltKapt)
         add(hiltViewModelKapt)
+        add(roomKapt)
     }
 
     val appKaptTest =arrayListOf<String>().apply {

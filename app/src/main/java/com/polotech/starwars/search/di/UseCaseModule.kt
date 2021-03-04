@@ -1,6 +1,7 @@
 package com.polotech.starwars.search.di
 
 import com.polotech.starwars.domain.repository.CharacterDetailsRepository
+import com.polotech.starwars.domain.repository.FavouriteRepository
 import com.polotech.starwars.domain.repository.SearchCharacterRepository
 import com.polotech.starwars.domain.usecases.*
 import dagger.Module
@@ -44,6 +45,18 @@ object UseCaseModule {
         return FetchSpeciesUseCase(characterDetailsRepository)
     }
 
+    @InsertFavUseCase
+    @Provides
+    fun providesInsertFavouriteUseCase(favouriteRepository: FavouriteRepository) : InsertFavouriteUseCase{
+        return InsertFavouriteUseCase(favouriteRepository)
+    }
+
+    @GetFavUseCase
+    @Provides
+    fun providesGetFavouriteUseCase(favouriteRepository: FavouriteRepository) : GetFavouriteUseCase{
+        return GetFavouriteUseCase(favouriteRepository)
+    }
+
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
@@ -64,6 +77,15 @@ object UseCaseModule {
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
     annotation class SearchUseCase
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class InsertFavUseCase
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class GetFavUseCase
+
 
 
 

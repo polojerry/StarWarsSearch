@@ -8,8 +8,10 @@ import com.polotech.starwars.domain.models.error.ErrorModel
 import com.polotech.starwars.domain.usecases.FetchFilmUseCase
 import com.polotech.starwars.domain.usecases.FetchPlanetUseCase
 import com.polotech.starwars.domain.usecases.FetchSpeciesUseCase
+import com.polotech.starwars.domain.usecases.InsertFavouriteUseCase
 import com.polotech.starwars.search.di.UseCaseModule
 import com.polotech.starwars.search.extensions.doOnError
+import com.polotech.starwars.search.mappers.toModel
 import com.polotech.starwars.search.mappers.toPresentation
 import com.polotech.starwars.search.models.*
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -22,6 +24,7 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     @UseCaseModule.FilmUseCase private val filmUseCase: FetchFilmUseCase,
     @UseCaseModule.PlanetUseCase private val planetUseCase: FetchPlanetUseCase,
     @UseCaseModule.SpeciesUseCase private val specieUseCase: FetchSpeciesUseCase,
+    @UseCaseModule.InsertFavUseCase private val insertFavouriteUseCase : InsertFavouriteUseCase,
     private val errorHandler: ErrorHandler,
 
     ) : ViewModel() {
@@ -105,6 +108,12 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
                         )
                     }
             }
+        }
+    }
+
+    fun insertFavourite(characterPresenter: CharacterPresenter){
+        viewModelScope.launch {
+            insertFavouriteUseCase(characterPresenter.toModel())
         }
     }
 
