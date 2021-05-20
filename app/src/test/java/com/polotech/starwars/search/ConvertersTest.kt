@@ -2,8 +2,8 @@ package com.polotech.starwars.search
 
 import com.polotech.starwars.search.fakes.DataFake
 import com.polotech.starwars.search.fakes.DataFake.population
-import com.polotech.starwars.search.util.cmToFeetConverter
-import com.polotech.starwars.search.util.populationConverter
+import com.polotech.starwars.search.common.util.cmToFeetConverter
+import com.polotech.starwars.search.common.util.populationConverter
 import org.junit.Assert
 import org.junit.Test
 

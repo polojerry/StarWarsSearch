@@ -20,7 +20,7 @@ import com.polotech.starwars.search.fake.DataFake.specie.speciePresenter
 import com.polotech.starwars.search.fake.repository.CharacterDetailsRepositoryFake
 import com.polotech.starwars.search.fake.repository.SearchCharacterRepositoryFake
 import com.polotech.starwars.search.ui.MainActivity
-import com.polotech.starwars.search.ui.search.SearchRecyclerAdapter
+import com.polotech.search.feature.search.ui.search.SearchRecyclerAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -91,7 +91,7 @@ class SearchFragmentTest {
 
 
         onView(withId(R.id.recycler_view_search))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<SearchRecyclerAdapter.SearchViewHolder>(
+            .perform(RecyclerViewActions.actionOnItemAtPosition<com.polotech.search.feature.search.ui.search.SearchRecyclerAdapter.SearchViewHolder>(
                 0,
                 click()))
 
@@ -106,7 +106,7 @@ class SearchFragmentTest {
 
 
         onView(withId(R.id.recycler_view_search))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<SearchRecyclerAdapter.SearchViewHolder>(
+            .perform(RecyclerViewActions.actionOnItemAtPosition<com.polotech.search.feature.search.ui.search.SearchRecyclerAdapter.SearchViewHolder>(
                 0,
                 click()))
 

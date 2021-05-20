@@ -5,10 +5,19 @@
       <map>
         <entry key="app/src/main/res/layout/item_character_search.xml" value="0.259963768115942" />
         <entry key="app/src/main/res/layout/item_film.xml" value="0.259963768115942" />
+        <entry key="app/src/main/res/layout/shimmer_layout_details.xml" value="0.3183876811594203" />
+        <entry key="app/src/main/res/layout/shimmer_layout_search.xml" value="0.3183876811594203" />
         <entry key="common/src/main/res/drawable/ic_undraw_lost_online_wqob.xml" value="0.3958333333333333" />
+        <entry key="feature-details/src/main/res/layout/details_fragment.xml" value="0.3183876811594203" />
+        <entry key="feature-details/src/main/res/layout/item_film.xml" value="0.3183876811594203" />
+        <entry key="feature-details/src/main/res/layout/shimmer_layout_details.xml" value="0.3183876811594203" />
         <entry key="feature-home/src/main/res/drawable/a.xml" value="0.3958333333333333" />
         <entry key="feature-home/src/main/res/drawable/ic_arrow_forward.xml" value="0.3958333333333333" />
         <entry key="feature-home/src/main/res/layout/search_layout.xml" value="0.2635416666666667" />
+        <entry key="feature-search/src/main/res/layout/item_character_search.xml" value="0.13662790697674418" />
+        <entry key="feature-search/src/main/res/layout/item_shimmer_character_search.xml" value="0.3183876811594203" />
+        <entry key="feature-search/src/main/res/layout/search_fragment.xml" value="0.23169601482854496" />
+        <entry key="feature-search/src/main/res/layout/search_layout.xml" value="0.3183876811594203" />
       </map>
     </option>
   </component>

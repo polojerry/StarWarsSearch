@@ -1,9 +1,9 @@
 package com.polotech.starwars.search.mappers
 
 import com.polotech.starwars.domain.models.*
+import com.polotech.starwars.search.common.util.cmToFeetConverter
+import com.polotech.starwars.search.common.util.populationConverter
 import com.polotech.starwars.search.models.*
-import com.polotech.starwars.search.util.cmToFeetConverter
-import com.polotech.starwars.search.util.populationConverter
 
 fun CharacterModel.toPresentation(): CharacterPresenter {
     return CharacterPresenter(

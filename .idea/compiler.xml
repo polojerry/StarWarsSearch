@@ -4,7 +4,10 @@
     <bytecodeTargetLevel target="1.8">
       <module name="StarWarsSearch.buildSrc" target="11" />
       <module name="StarWarsSearch.common" target="11" />
+      <module name="StarWarsSearch.core" target="11" />
+      <module name="StarWarsSearch.feature-details" target="11" />
       <module name="StarWarsSearch.feature-home" target="11" />
+      <module name="StarWarsSearch.feature-search" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

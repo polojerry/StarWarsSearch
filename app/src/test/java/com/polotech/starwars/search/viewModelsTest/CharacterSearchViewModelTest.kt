@@ -10,7 +10,7 @@ import com.polotech.starwars.domain.usecases.FetchSpeciesUseCase
 import com.polotech.starwars.search.fakes.DataFake
 import com.polotech.starwars.search.fakes.repository.CharacterDetailsRepositoryFake
 import com.polotech.starwars.search.models.Results
-import com.polotech.starwars.search.ui.details.DetailsViewModel
+import com.polotech.starwars.feature.details.ui.details.DetailsViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Before
@@ -20,7 +20,7 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class CharacterSearchViewModelTest {
 
-    private lateinit var viewModel: DetailsViewModel
+    private lateinit var viewModel: com.polotech.starwars.feature.details.ui.details.DetailsViewModel
     private lateinit var errorHandler: ErrorHandler
 
     @get:Rule
@@ -42,7 +42,7 @@ class CharacterSearchViewModelTest {
 
 
         errorHandler = ErrorHandlerImpl()
-        viewModel = DetailsViewModel(
+        viewModel = com.polotech.starwars.feature.details.ui.details.DetailsViewModel(
             saveStateHandle,
             filmUseCase,
             planetUseCase,

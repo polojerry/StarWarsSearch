@@ -7,7 +7,7 @@ import com.polotech.starwars.domain.usecases.SearchCharacterUseCase
 import com.polotech.starwars.search.fakes.DataFake
 import com.polotech.starwars.search.fakes.repository.SearchCharacterRepositoryFake
 import com.polotech.starwars.search.models.Results
-import com.polotech.starwars.search.ui.search.SearchViewModel
+import com.polotech.search.feature.search.ui.search.SearchViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Before
@@ -17,7 +17,7 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class SearchViewModelTest {
 
-    private lateinit var viewModel: SearchViewModel
+    private lateinit var viewModel: com.polotech.search.feature.search.ui.search.SearchViewModel
     private lateinit var errorHandler: ErrorHandler
 
     @get:Rule
@@ -33,7 +33,10 @@ class SearchViewModelTest {
         val searchCharacterUseCase = SearchCharacterUseCase(searchCharacter)
 
         errorHandler = ErrorHandlerImpl()
-        viewModel = SearchViewModel(searchCharacterUseCase, errorHandler)
+        viewModel = com.polotech.search.feature.search.ui.search.SearchViewModel(
+            searchCharacterUseCase,
+            errorHandler
+        )
 
     }
 
