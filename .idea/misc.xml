@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/item_character_search.xml" value="0.259963768115942" />
+        <entry key="app/src/main/res/layout/item_film.xml" value="0.259963768115942" />
+        <entry key="common/src/main/res/drawable/ic_undraw_lost_online_wqob.xml" value="0.3958333333333333" />
+        <entry key="feature-home/src/main/res/drawable/a.xml" value="0.3958333333333333" />
+        <entry key="feature-home/src/main/res/drawable/ic_arrow_forward.xml" value="0.3958333333333333" />
+        <entry key="feature-home/src/main/res/layout/search_layout.xml" value="0.2635416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
