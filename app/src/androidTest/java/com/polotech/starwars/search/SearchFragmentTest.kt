@@ -11,7 +11,7 @@ import com.polotech.starwars.data.remote.util.ErrorHandlerImpl
 import com.polotech.starwars.domain.models.error.ErrorHandler
 import com.polotech.starwars.domain.repository.CharacterDetailsRepository
 import com.polotech.starwars.domain.repository.SearchCharacterRepository
-import com.polotech.starwars.search.di.RemoteDataSource
+import com.polotech.starwars.core.di.RemoteDataSource
 import com.polotech.starwars.search.fake.DataFake.characters.characterPresenter
 import com.polotech.starwars.search.fake.DataFake.planet.planetPresenter
 import com.polotech.starwars.search.fake.DataFake.search.empty_search
@@ -20,7 +20,6 @@ import com.polotech.starwars.search.fake.DataFake.specie.speciePresenter
 import com.polotech.starwars.search.fake.repository.CharacterDetailsRepositoryFake
 import com.polotech.starwars.search.fake.repository.SearchCharacterRepositoryFake
 import com.polotech.starwars.search.ui.MainActivity
-import com.polotech.search.feature.search.ui.search.SearchRecyclerAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +32,7 @@ import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest
-@UninstallModules(RemoteDataSource::class)
+@UninstallModules(com.polotech.starwars.core.di.RemoteDataSource::class)
 class SearchFragmentTest {
 
     private val exploreStarWars = "Lets explore the star wars Universe"

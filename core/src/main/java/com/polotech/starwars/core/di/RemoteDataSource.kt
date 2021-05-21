@@ -1,4 +1,4 @@
-package com.polotech.starwars.search.di
+package com.polotech.starwars.core.di
 
 import com.polotech.starwars.data.remote.api.StarWarsApiService
 import com.polotech.starwars.data.remote.repositories.CharacterDetailsRepositoryImpl

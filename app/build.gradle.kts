@@ -56,10 +56,18 @@ dependencies {
     //local module
     implementation(project(LocalModules.dataModule))
     implementation(project(LocalModules.domainModule))
+    implementation(project(LocalModules.navigation))
+    implementation(project(LocalModules.commonModule))
+    implementation(project(LocalModules.core))
+
+    implementation(project(LocalModules.featureDetails))
+    implementation(project(LocalModules.featureSearch))
+
+
     //implementation(project(LocalModules.commonModule))
 
-    implementation(project(LocalModules.featureSearch))
-    implementation(project(LocalModules.featureDetails))
+//    implementation(project(LocalModules.featureSearch))
+//    implementation(project(LocalModules.featureDetails))
 
     //app libs
     implementation(AppDependencies.appLibraries)

@@ -38,16 +38,21 @@ android {
 
 dependencies {
 
-    implementation(project(LocalModules.app))
+    //implementation(project(LocalModules.app))
     implementation(project(LocalModules.domainModule))
 
 
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
+    implementation(project(mapOf("path" to ":data")))
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+
+    implementation(DataDependencies.retrofit)
+    implementation((DataDependencies.moshi))
+    implementation((DataDependencies.loggingInterceptor))
 
     implementation(AppDependencies.hilt)
     implementation(AppDependencies.hiltViewModel)

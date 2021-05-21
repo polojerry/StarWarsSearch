@@ -8,12 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.polotech.starwars.domain.models.error.ErrorModel
+import com.polotech.starwars.feature.details.R
 import com.polotech.starwars.feature.details.databinding.DetailsFragmentBinding
 import com.polotech.starwars.feature.details.models.FilmPresenter
 import com.polotech.starwars.feature.details.models.PlanetPresenter
 import com.polotech.starwars.feature.details.models.Results
 import com.polotech.starwars.feature.details.models.SpeciesPresenter
-import com.polotech.starwars.search.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

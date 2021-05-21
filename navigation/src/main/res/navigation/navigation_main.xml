@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/search_navigation">
+
+
+    <include app:graph="@navigation/search_navigation" />
+
+    <include app:graph="@navigation/details_navigation" />
+
+    <action
+        android:id="@+id/action_global_search_navigation"
+        app:destination="@id/search_navigation" />
+
+    <action
+        android:id="@+id/action_global_details_navigation"
+        app:destination="@id/details_navigation" >
+
+        <argument
+            android:name="character"
+            app:argType="string" />
+
+    </action>
+
+
+</navigation>

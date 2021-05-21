@@ -1,7 +1,7 @@
-package com.polotech.starwars.search.di
+package com.polotech.starwars.core.di
 
+import com.polotech.starwars.core.BuildConfig
 import com.polotech.starwars.data.remote.api.StarWarsApiService
-import com.polotech.starwars.search.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

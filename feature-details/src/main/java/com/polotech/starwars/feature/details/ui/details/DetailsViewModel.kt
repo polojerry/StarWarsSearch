@@ -52,10 +52,11 @@ class DetailsViewModel @ViewModelInject @Inject constructor(
     }
 
     init {
-        _character.value = savedStateHandle.get<CharacterPresenter>("character")
-        fetchPlanet(character.value?.url)
-        fetchFilms(character.value?.url)
-        fetchSpecies(character.value?.url)
+       // _character.value = savedStateHandle.get<CharacterPresenter>("character")
+        val characterUrl = savedStateHandle.get<String>("character")
+        fetchPlanet(characterUrl)
+        fetchFilms(characterUrl)
+        fetchSpecies(characterUrl)
     }
 
     private fun fetchPlanet(url: String?) {

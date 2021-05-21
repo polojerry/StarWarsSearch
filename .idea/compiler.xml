@@ -8,6 +8,7 @@
       <module name="StarWarsSearch.feature-details" target="11" />
       <module name="StarWarsSearch.feature-home" target="11" />
       <module name="StarWarsSearch.feature-search" target="11" />
+      <module name="StarWarsSearch.navigation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

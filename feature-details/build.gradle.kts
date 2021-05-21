@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -46,6 +47,7 @@ dependencies {
     implementation(project(LocalModules.domainModule))
     implementation(project(LocalModules.commonModule))
     implementation(project(LocalModules.core))
+    implementation(project(LocalModules.navigation))
 
     implementation(AppDependencies.liveData)
     implementation(AppDependencies.viewModel)
@@ -60,6 +62,9 @@ dependencies {
 
     kapt(AppDependencies.hiltKapt)
     kapt(AppDependencies.hiltViewModelKapt)
+
+    implementation(AppDependencies.navigationUi)
+    implementation(AppDependencies.navigationFragment)
 
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")

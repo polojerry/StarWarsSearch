@@ -7,7 +7,7 @@
 
         <variable
             name="character"
-            type="com.polotech.starwars.feature.details.models.CharacterPresenter" />
+            type="com.polotech.search.feature.search.models.CharacterPresenter" />
 
         <variable
             name="clickListener"

@@ -15,6 +15,9 @@ import com.polotech.search.feature.search.models.CharacterPresenter
 import com.polotech.search.feature.search.models.Results
 import com.polotech.starwars.domain.models.error.ErrorModel
 import com.polotech.search.feature.search.ui.search.SearchRecyclerAdapter.OnClickListener
+import com.polotech.starwars.navigation.Navigation
+import com.polotech.starwars.navigation.NavigationDestination
+import com.polotech.starwars.navigation.Navigator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,10 +45,15 @@ class SearchFragment : Fragment() {
 
     private fun setUpDisplay() {
         adapter = SearchRecyclerAdapter(OnClickListener { character ->
+            navigateToDetails(character)
             /*val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(character)
             findNavController().navigate(action)*/
         })
         binding.recyclerViewSearch.adapter = adapter
+    }
+
+    private fun navigateToDetails(character: CharacterPresenter) {
+        (requireActivity() as Navigation).toNavigationDestination(NavigationDestination.CharacterDetails(character = character.url))
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
